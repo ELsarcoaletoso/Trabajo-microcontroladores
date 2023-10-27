@@ -1,8 +1,8 @@
 const int blueLed = 5;
 const int redLed = 6;
 const int greenLed = 7;
-const int Button1= 8;
-const int Button2= 9;
+const int Button1= 3;
+const int Button2= 4;
 const int dipSwitch[] = {11, 10, 9, 8};
 int ButtonState1 = 0;
 int ButtonState2 = 0;
