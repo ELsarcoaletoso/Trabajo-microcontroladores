@@ -3,18 +3,21 @@
 #define LEDverde 5
 
 void setup(){
-  pinMode(10,OUTPUT);
-   pinMode(8,OUTPUT);
+  pinMode(11,INPUT);
+   pinMode(10,INPUT);
   
     pinMode(7,OUTPUT);
     pinMode(6,OUTPUT);
     pinMode(5,OUTPUT);
+  
+  
 }
 void loop(){
   bool swi1,swi2; 
-    swi1=digitalRead(8);
+    swi1=digitalRead(11);
     swi2=digitalRead(10);
-  if(swi1==1&&swi2==0){
+  
+  if(swi1==1 && swi2==0){
    digitalWrite(LEDrojo, HIGH);
       digitalWrite(LEDamarillo, LOW);
       digitalWrite(LEDverde, LOW);
