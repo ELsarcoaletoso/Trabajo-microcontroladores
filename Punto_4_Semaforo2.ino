@@ -1,12 +1,12 @@
-#define LEDrojo 5
+#define LEDrojo 7
 #define LEDamarillo 6
-#define LEDverde 7
+#define LEDverde 5
 #define POTENCIOMETRO A0
 
 void setup() {
   Serial.begin(9600);
-  pinMode(8, OUTPUT);
-  pinMode(9, OUTPUT);
+  pinMode(11, INPUT);
+  pinMode(10, INPUT);
   pinMode(POTENCIOMETRO, INPUT);
   pinMode(LEDrojo, OUTPUT);
   pinMode(LEDamarillo, OUTPUT);
@@ -15,8 +15,8 @@ void setup() {
 
 void loop() {
   bool swi1, swi2;
-  swi1 = digitalRead(8);
-  swi2 = digitalRead(9);
+  swi1 = digitalRead(11);
+  swi2 = digitalRead(10);
 int sensorValue = analogRead(A0);
   Serial.println(sensorValue);
   delay(1);
