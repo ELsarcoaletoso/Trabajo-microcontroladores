@@ -8,7 +8,7 @@ int ButtonState1 = 0;
 int ButtonState2 = 0;
 int push=0;
 int recaudo=0;
-int tarifa=5000;
+float tarifa=5000;
 
 void setup()
 {
@@ -27,9 +27,6 @@ void loop ()
   if (ButtonState1 == HIGH)
   {
  digitalWrite(greenLed, HIGH);
-   recaudo=recaudo+tarifa;
-    Serial.print("se han recolectado: ");
-    Serial.println(recaudo);
     push++;
     Serial.print("dentro de el parqueadeor hay: ");
     Serial.println(push);
@@ -62,6 +59,10 @@ if (ButtonState2 == HIGH)
  delay(1000);
     Serial.println(push);
     delay (100);
+  recaudo=recaudo+tarifa;
+    Serial.print("se han recolectado: ");
+    Serial.println(recaudo);
+   
 } 
   
 else 
