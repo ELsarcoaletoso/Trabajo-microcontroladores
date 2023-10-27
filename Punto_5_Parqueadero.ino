@@ -7,6 +7,8 @@ const int dipSwitch[] = {11, 10, 9, 8};
 int ButtonState1 = 0;
 int ButtonState2 = 0;
 int push=0;
+int recaudo=0;
+int tarifa=5000;
 
 void setup()
 {
@@ -22,10 +24,12 @@ void setup()
 void loop ()
 {
   ButtonState1 = digitalRead(Button1);
-  
   if (ButtonState1 == HIGH)
   {
  digitalWrite(greenLed, HIGH);
+   recaudo=recaudo+tarifa;
+    Serial.print("se han recolectado: ");
+    Serial.println(recaudo);
     push++;
     Serial.print("dentro de el parqueadeor hay: ");
     Serial.println(push);
@@ -51,7 +55,7 @@ else
 
 if (ButtonState2 == HIGH)
 { 
- digitalWrite(blueLed, HIGH);
+ digitalWrite(redLed, HIGH);
    push--;
   Serial.print("el parqueadero esta lleno hay ");
     Serial.println(push);
