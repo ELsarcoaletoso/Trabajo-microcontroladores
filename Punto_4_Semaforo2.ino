@@ -32,25 +32,25 @@ int sensorValue = analogRead(A0);
       digitalWrite(LEDrojo, HIGH);
       digitalWrite(LEDamarillo, HIGH);
       digitalWrite(LEDverde, LOW);
-      delay(1000);
+      delay(sensorValue*1000);
 
       digitalWrite(LEDrojo, LOW);
       digitalWrite(LEDamarillo, LOW);
       digitalWrite(LEDverde, HIGH);
-      delay(3000);
+      delay(sensorValue*3000);
 
       digitalWrite(LEDrojo, LOW);
       digitalWrite(LEDverde, LOW);
       digitalWrite(LEDamarillo, HIGH);
-      delay(1000);
+      delay(sensorValue*1000);
   }
   if(swi1==0 && swi2==1){
    digitalWrite(LEDrojo, LOW);
    digitalWrite(LEDverde, LOW);
     digitalWrite(LEDamarillo, HIGH);
-      delay(500);
+      delay(sensorValue*500);
       digitalWrite(LEDamarillo, LOW);
-      delay(500);
+      delay(sensorValue*500);
   }
   else{
    digitalWrite(LEDrojo, LOW);
