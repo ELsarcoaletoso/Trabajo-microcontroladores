@@ -2,6 +2,7 @@
 #define LEDamarillo 6
 #define LEDverde 5
 #define POTENCIOMETRO A0
+int conteo = 0;
 
 void setup() 
 {
@@ -21,8 +22,9 @@ void loop()
   swi2 = digitalRead(10);
   int sensor = analogRead(A0);
   int velocidad = map (sensor,0,1023,300,50);
-  Serial.print("se cumplio un ciclo numero");
-  Serial.print(velocidad);
+  Serial.print("se cumplio un ciclo numero ");
+  conteo++;
+  Serial.print(conteo);
   Serial.println(".");
   delay(1);
   
