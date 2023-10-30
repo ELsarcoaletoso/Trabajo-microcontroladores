@@ -19,9 +19,10 @@ void loop()
   bool swi1, swi2;
   swi1 = digitalRead(11);
   swi2 = digitalRead(10);
-int sensor = analogRead(A0);
-   int velocidad = map (sensor,0,1023,300,50);
-  Serial.print("se cumplio un ciclo");
+  int sensor = analogRead(A0);
+  int velocidad = map (sensor,0,1023,300,50);
+  Serial.print("se cumplio un ciclo numero");
+  Serial.print(velocidad);
   Serial.println(".");
   delay(1);
   
