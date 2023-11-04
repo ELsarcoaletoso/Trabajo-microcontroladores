@@ -1,3 +1,4 @@
+// los valores son 25 como minimo 541 como medio y 1000 como maximo.
 #define POTENCIOMETRO A0
 #define LED_AZUL D7
 #define LED_ROJO D8
