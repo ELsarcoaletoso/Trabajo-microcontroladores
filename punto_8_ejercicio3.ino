@@ -16,15 +16,15 @@ void setup()
 
 void loop()
 {
- Serial.print("ingrese el codigo de color: ");
-  while (Serial.available()==0);
   {
+    Serial.print("ingrese el codigo de color: ");
       Serial.print(color1);
       Serial.print(", ");
       Serial.print(color2);
        Serial.print(", ");
       Serial.print(color3);
        Serial.println(".");
+  while (Serial.available()==0);
   }
  if (Serial.available()) 
 {
