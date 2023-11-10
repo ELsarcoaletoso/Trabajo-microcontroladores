@@ -1,6 +1,6 @@
-const int red = 11;
-const int blue = 10;
-const int green = 9;
+const int red = D7;
+const int blue = D6;
+const int green = D5;
 int color1;
 int color2;
 int color3;
@@ -10,6 +10,7 @@ void setup()
   pinMode(red, OUTPUT);
   pinMode(blue, OUTPUT);
   pinMode(green, OUTPUT);
+
   
   Serial.begin(115200);
 }
