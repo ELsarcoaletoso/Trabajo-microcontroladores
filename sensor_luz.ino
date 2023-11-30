@@ -11,7 +11,8 @@ int lightVal;
 int t = 500;
 int motor = 10;
 
-void setup() {
+void setup() 
+{
   Serial.begin(9600);
   dht.begin();
   pinMode(lightPin, INPUT);
@@ -26,16 +27,16 @@ void loop()
   Serial.println(lightVal);
   delay(t);
 
-  if(lightVal >700){
+  if(lightVal >700)
+  {
     digitalWrite(wPin, HIGH);
   }
-  if(lightVal <= 700){
-
+  if(lightVal <= 700)
+  {
     digitalWrite(wPin, LOW);
   }
   {
      delay(2000);
-
   h = dht.readHumidity();
   if (isnan(h)) 
   {
@@ -48,5 +49,16 @@ void loop()
   Serial.print(h);
   Serial.println(" % \t");
   }
+  if(h <= 70)
+  {
+    digitalWrite(motor, HIGH);
+    delay(2000);
+  }
+  if(h > 70)
+  {
+    digitalWrite(motor, LOW);
+    delay(2000);
+  }
+     
 }
 
