@@ -9,7 +9,7 @@ int wPin=7;
 int lightPin = A0;
 int lightVal;
 int t = 500;
-int motor = 10;
+int motor = 8;
 
 void setup() 
 {
@@ -49,16 +49,17 @@ void loop()
   Serial.print(h);
   Serial.println(" % \t");
   }
-  if(h <= 70)
+  if(h>=60)
   {
     digitalWrite(motor, HIGH);
-    delay(2000);
+    delay(10000);
+    digitalWrite(motor, LOW);
+    delay(1000);
   }
-  if(h > 70)
+  else
   {
     digitalWrite(motor, LOW);
-    delay(2000);
+    delay(1000);
   }
      
 }
-
