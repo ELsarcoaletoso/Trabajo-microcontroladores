@@ -17,7 +17,7 @@ void setup()
   dht.begin();
   pinMode(lightPin, INPUT);
   pinMode(wPin, OUTPUT);
-  pinMode(MOTOR, OUTPUT);
+  pinMode(motor, OUTPUT);
 }
 
 void loop()
