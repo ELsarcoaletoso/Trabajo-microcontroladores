@@ -1,38 +1,71 @@
-#include <DHT.h>
-#include <DHT_U.h>
 
 #include <DHT.h>
-#define DHTPIN D4
+#define DHTPIN 4
 #define DHTTYPE DHT11
- 
 DHT dht(DHTPIN, DHTTYPE);
- 
+
+float h;
+int wPin=11;
+int lightPin = A0;
+int lightVal;
+int motor1 = 8;
+int vel =10;
+int pwm ;
+float ref = 50.0;
+int error;
+int k = 1;
 void setup() 
 {
-  Serial.begin(115200);
+  Serial.begin(9600);
   dht.begin();
+  pinMode(lightPin, INPUT);
+  pinMode(wPin, OUTPUT);
+  pinMode(motor1, OUTPUT);
+  pinMode(motor1, OUTPUT);
+  pinMode(vel, OUTPUT);
 }
- 
-void loop() 
-{
-    delay(5000);
 
-  float h = dht.readHumidity();
-  float t = dht.readTemperature();
-  
+void loop()
+{
  
-  
-  if (isnan(h) || isnan(t)) 
+  lightVal = analogRead(lightPin);                                                      
+  Serial.println(lightVal);
+  delay(500);
+  h = dht.readHumidity();
+  delay(100);
+
+  if(lightVal >700)
+  {
+    digitalWrite(wPin, HIGH);
+  }
+  if(lightVal <= 700)
+  {
+    digitalWrite(wPin, LOW);
+  }
+  {
+     
+  if (isnan(h)) 
   {
     Serial.println("error obteniendo los datos del sensor DHT11");
     return;
   }
-  float hic = dht.computeHeatIndex(t, h, false);
+  float hic = dht.computeHeatIndex(h, false);
  
   Serial.print("humedad: ");
   Serial.print(h);
   Serial.println(" % \t");
-  Serial.print("temperatura: ");
-  Serial.print(t);
-  Serial.println(" °C\t");  
+  }
+
+  error =ref-h;
+  pwm =k*error;
+  
+    analogWrite(vel,pwm); 
+    digitalWrite(motor1, HIGH);
+    delay(2000);
+ 
+  
+  if (pwm>225)
+  { 
+   pwm =225;
+  }
 }
