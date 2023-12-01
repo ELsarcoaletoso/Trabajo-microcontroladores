@@ -10,6 +10,7 @@ int lightPin = A0;
 int lightVal;
 int t = 500;
 int motor = 8;
+int vel =10;
 
 void setup() 
 {
@@ -18,12 +19,13 @@ void setup()
   pinMode(lightPin, INPUT);
   pinMode(wPin, OUTPUT);
   pinMode(motor, OUTPUT);
+  pinMode(vel, OUTPUT);
 }
 
 void loop()
 {
  
-  lightVal = analogRead(lightPin);
+  lightVal = analogRead(lightPin);                                                      
   Serial.println(lightVal);
   delay(t);
 
@@ -36,7 +38,7 @@ void loop()
     digitalWrite(wPin, LOW);
   }
   {
-     delay(2000);
+     delay(5000);
   h = dht.readHumidity();
   if (isnan(h)) 
   {
@@ -49,17 +51,31 @@ void loop()
   Serial.print(h);
   Serial.println(" % \t");
   }
-  if(h>=60)
+  if(h>=80 )
   {
+    analogWrite(vel,40); 
     digitalWrite(motor, HIGH);
-    delay(10000);
+    delay(2000);
     digitalWrite(motor, LOW);
-    delay(1000);
+    delay(5000);
   }
-  else
+   if(h=60)
   {
+    analogWrite(vel,100); 
+    digitalWrite(motor, HIGH);
+    delay(2000);
     digitalWrite(motor, LOW);
-    delay(1000);
+    delay(5000);
   }
-     
+  if (h<55)
+   analogWrite(vel,225); 
+    digitalWrite(motor, HIGH);
+    delay(2000);
+    digitalWrite(motor, LOW);
+    delay(5000);  
+   {  
+    digitalWrite(motor, LOW);
+    delay(5000);
+  }   
 }
+
